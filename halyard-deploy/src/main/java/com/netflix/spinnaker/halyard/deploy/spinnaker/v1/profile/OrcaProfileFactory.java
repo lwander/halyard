@@ -16,6 +16,7 @@
 
 package com.netflix.spinnaker.halyard.deploy.spinnaker.v1.profile;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.netflix.spinnaker.halyard.config.model.v1.node.DeploymentConfiguration;
 import com.netflix.spinnaker.halyard.config.model.v1.providers.aws.AwsProvider;
 import com.netflix.spinnaker.halyard.deploy.spinnaker.v1.SpinnakerArtifact;
@@ -37,6 +38,17 @@ public class OrcaProfileFactory extends SpringProfileFactory {
     AwsProvider awsProvider = deploymentConfiguration.getProviders().getAws();
     if (awsProvider.isEnabled()) {
       profile.appendContents("default.bake.account: " + awsProvider.getPrimaryAccount());
+      profile.appendContents("default.securityGroups: ");
+      profile.appendContents("default.vpc.securityGroups: ");
+    }
+  }
+
+  static class DefaultConfig {
+    @JsonProperty("default")
+    Default defaultValue;
+
+    static class Default {
+
     }
   }
 }

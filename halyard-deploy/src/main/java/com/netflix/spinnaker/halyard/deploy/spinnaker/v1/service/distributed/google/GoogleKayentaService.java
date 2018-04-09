@@ -32,8 +32,6 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @Component
-// TODO(duftler): Remove this once the kayenta repo is public.
-@ConditionalOnExpression("${canary.enabled:false}")
 public class GoogleKayentaService extends KayentaService implements GoogleDistributedService<KayentaService.Kayenta> {
   final DeployPriority deployPriority = new DeployPriority(4);
   final boolean requiredToBootstrap = false;

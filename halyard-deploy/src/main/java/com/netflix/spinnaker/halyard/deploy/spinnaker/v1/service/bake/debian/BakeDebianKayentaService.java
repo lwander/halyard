@@ -34,8 +34,6 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @Component
-// TODO(duftler): Remove this once the kayenta repo is public.
-@ConditionalOnExpression("${canary.enabled:false}")
 public class BakeDebianKayentaService extends KayentaService implements BakeDebianService<KayentaService.Kayenta> {
   final String upstartServiceName = "kayenta";
 

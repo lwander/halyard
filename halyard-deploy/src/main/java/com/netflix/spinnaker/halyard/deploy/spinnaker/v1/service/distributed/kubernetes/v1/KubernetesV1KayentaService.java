@@ -31,8 +31,6 @@ import org.springframework.stereotype.Component;
 @EqualsAndHashCode(callSuper = true)
 @Component
 @Data
-// TODO(duftler): Remove this once the kayenta repo is public.
-@ConditionalOnExpression("${canary.enabled:false}")
 public class KubernetesV1KayentaService extends KayentaService implements KubernetesV1DistributedService<KayentaService.Kayenta> {
   @Delegate
   @Autowired
